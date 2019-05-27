@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Alexander Toop</title>
+    <meta name="description"
+          content="A website created to display information about and projects created by Alexander Toop. "/>
+    <link rel="icon" href="../images/favicon.ico"/>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <!-- 'Simple line icons': lisenced under MIT lisence -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <!-- Gets fonts for titles and text -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Prociono" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+<div id="nav-bar-content"></div>
+
+
+<div id="wrapper">
+
+    <div id="header">
+        <h1>CV</h1>
+    </div>
+    <div class="row">
+        <!-- This is the left section of the page. -->
+        <div class="col-md-12">
+            <div id="section">
+                <div id="embedded_pdf">
+                    <embed src="documents/Alexander_John_Toop_CV.pdf" width="768px"
+                           height="605px" type='application/pdf'>
+                </div>
+
+                <div id="centered_text">
+                    <p>Note: Some personal information has been removed from this
+                        copy of my CV due to its online publishing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="footer">Alexander J. Toop 2018</div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#nav-bar-content').load('jquery_includes/navbar.html');
+    });
+</script>

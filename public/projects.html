@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>Alexander Toop</title>
+    <meta name="description"
+          content="A website created to display information about and projects created by Alexander Toop. "/>
+    <link rel="icon" href="../images/favicon.ico"/>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <!-- 'Simple line icons': lisenced under MIT lisence -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <!-- Gets fonts for titles and text -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Prociono" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+<div id="nav-bar-content"></div>
+
+
+<div id="wrapper">
+
+    <div id="header">
+        <h1>Projects</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="about_section">
+
+                <h2>Angular 5 Website Development.</h2>
+                <p>
+                    This website has been developed using Angular 5 and Bootstrap 4. It is hosted on AWS EC2 and is
+                    intended as a way to practise my Angular skills outside of work. The code will be posted on GitHub
+                    as a public project should you wish to have a look after I've finished my current major revamp of
+                    this site.
+                </p>
+
+                <h2>AWS Cloud Development.</h2>
+                <p>
+                    With the progression of services to the cloud I've been interested in becoming familiar with the
+                    process of cloud development, deployment and management. To this end I've set up my own AWS project
+                    with this website as an example. This is in support of my progress towards AWS Cloud Practitioner
+                    certification. For example, this website itself if hosted on a t1.micro instance on AWS EC2.
+                </p>
+
+                <h2>Java Coding Test Submission - Router Patch Tester.</h2>
+                <p>
+                    A project created to demonstrate some of my Java programming skills. Specification was provided by
+                    BT for my industrial year application. Program takes in a CSV file and then outputs to terminal the
+                    details of routers that meet the update criteria. CSV is expected to consist of lines containing 5
+                    comma separated values. The contents of these lines are then tested against the update criteria.
+                    (Hostname/IP Address have not been repeated, router has not already been patched, version is 12+ and
+                    information is logical.) <strong>GitHub</strong> [<a
+                        href="https://github.com/AlexToop/Router-Patch-Check-Submission" target="_blank">LINK</a>]
+                </p>
+
+                <h2>Arduino Hardware and Programming: Making a clock.</h2>
+                <p>
+                    Having been introduced to Arduinos during the first year of my Software engineering degree at
+                    Aberystwyth University I decided I really wanted to try and pursue different projects with my
+                    Arduino. Therefore after finding and purchasing a hardware package for the Arduino I decided to
+                    create my own clock using the LCD screen provided and a serial clock circuit.
+                    <strong>GitHub</strong> [<a href="https://github.com/AlexToop/arduino_clock"
+                                                target="_blank">LINK</a>]
+                </p>
+
+                <h2>Personal Website Development.</h2>
+                <p>
+                    Having been taught about websites in a first year module I decided I would like to make my own
+                    website. I could have used solutions such as WordPress to make the process easier, however I chose
+                    to write the website from scratch to get a better feel for HTML and CSS. Whilst creating the website
+                    I decided to focus on simplicity and functionality. A design concept I personally adore. <strong>GitHub</strong>
+                    [<a href="https://github.com/AlexToop/alextoop.github.io"
+                        target="_blank">LINK</a>]
+                </p>
+
+                <h2>Swift Xcode iOS Development.</h2>
+                <p>
+                    After hearing many positive things about the Swift programming language my curiosity got the better
+                    of me and I decided to try and develop an iOS application using Xcode. Having had no prior
+                    experience with the IDE or the language the initial learning curve was quite steep. However, soon I
+                    became more familiar with the syntax and development environment. <strong>GitHub</strong> [<a
+                        href="">LINK_NA</a>]
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="footer">Alexander J. Toop 2018</div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#nav-bar-content').load('jquery_includes/navbar.html');
+    });
+</script>

@@ -1,3 +1,1 @@
-npm install bootstrap
-npm install jquery
-npm install popper.js
+Removed npm use for bootstrap currently.
