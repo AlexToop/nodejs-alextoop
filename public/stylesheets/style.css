@@ -60,6 +60,10 @@ h3 {
     font-size: 18px;
 }
 
+.padding-left-200 {
+    padding-left: 170px;
+}
+
 .img3 {
     width: 100%;
     height: auto;
@@ -84,6 +88,9 @@ h3 {
     width: 100%;
 }
 
+.justify {
+    text-align: justify !important;
+}
 
 .social-links {
     margin-left: -28px;
@@ -173,6 +180,14 @@ h3 {
     padding-bottom: 25px;
 }
 
+.github-widget {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* ------------------------- ids ------------------------- */
 
 #wrapper {
@@ -190,7 +205,7 @@ h3 {
     width: 100%;
     left: 0;
     bottom: 0;
-    text-align: center;
+    text-align: justify;
 }
 
 #header {
@@ -201,11 +216,11 @@ h3 {
 
 #embedded_pdf {
     padding-bottom: 20px;
-    text-align: center
+    text-align: center;
 }
 
 #centered_text {
-    text-align: center;
+    text-align: justify;
 }
 
 
@@ -232,6 +247,7 @@ h3 {
 
 }
 
+
 @media only screen and (max-width: 768px) {
     .img1 {
         width: 99%;
@@ -249,5 +265,9 @@ h3 {
         margin-left: auto;
         margin-right: auto;
         padding-bottom: 20px;
+    }
+
+    .padding-left-200 {
+        padding-left: 0px;
     }
 }
