@@ -92,81 +92,6 @@ h3 {
     text-align: justify !important;
 }
 
-.social-links {
-    margin-left: -28px;
-}
-
-.social-links li {
-    display: inline-block;
-    text-align: center
-
-}
-
-.social-links li a {
-    margin-top: 10px;
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    border: 4px solid #444444;
-    font-size: 20px;
-    line-height: 50px;
-    background-color: #ececec;
-    margin-left: 13px;
-}
-
-.social-links li a:hover {
-    color: #fff;
-    background-color: #d7d7d7;
-}
-
-.social-links li a:link {
-    color: black;
-    text-decoration: none;
-}
-
-.social-links li a:visited {
-    color: black;
-    text-decoration: none;
-}
-
-.social-links-home {
-    margin-left: 50px;
-}
-
-.social-links-home li {
-    display: inline-block;
-    text-align: center
-
-}
-
-.social-links-home li a {
-    margin-top: 10px;
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    border: 4px solid #444444;
-    font-size: 20px;
-    line-height: 50px;
-    background-color: #ececec;
-    margin-left: 30px;
-}
-
-.social-links-home li a:hover {
-    color: #fff;
-    background-color: #d7d7d7;
-}
-
-.social-links-home li a:link {
-    color: black;
-    text-decoration: none;
-}
-
-.social-links-home li a:visited {
-    color: black;
-    text-decoration: none;
-}
-
-
 .img1 {
     max-width: 100%;
     height: auto;
@@ -185,6 +110,15 @@ h3 {
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+.linkedin-widget {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
 }
 
 
@@ -220,7 +154,7 @@ h3 {
 }
 
 #centered_text {
-    text-align: justify;
+    text-align: center;
 }
 
 
