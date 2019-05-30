@@ -31,7 +31,7 @@ module.exports.create = function (server, host, port, publicDir) {
     var app = express();
 
     // app.use(express.static(publicDir));
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, '..', 'public')));
 
     return app;
 };
