@@ -102,7 +102,6 @@
 //     debug('Listening on ' + bind);
 // }
 
-
 'use strict';
 
 var https = require('https');
@@ -123,8 +122,7 @@ var caCertsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf'
 //
 options = {
     key: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.key')),
-    cert: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.crt'))
-
+    cert: fs.readFileSync(path.join(caCertsPath, 'www.alextoop.com.crt'))
 };
 
 
