@@ -122,8 +122,8 @@ var caCertsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf'
 // SSL Certificates
 //
 options = {
-    key: fs.readFileSync(path.join(certsPath, www.alextoop.com.key')),
-    cert: fs.readFileSync(path.join(certsPath, www.alextoop.com.crt'))
+    key: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.key')),
+    cert: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.crt'))
 
 };
 
