@@ -147,7 +147,7 @@ checkip.getExternalIp().then(function (ip) {
         });
     }
 
-    var publicDir = path.join(__dirname, 'public');
+    var publicDir = path.join(__dirname, '..', 'public');
     var app = require('../app').create(server, host, port, publicDir);
     listen(app);
 });
