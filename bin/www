@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('alextoop-website:server');
 var http = require('http');
 var https = require('https');
+var fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
@@ -16,11 +17,21 @@ var https = require('https');
 var port = normalizePort(process.env.PORT || '443');
 app.set('port', port);
 
+var privateKey = fs.readFileSync(PRIVATEKEY_PATH, 'utf8');
+var certificate = fs.readFileSync(CERTIFICATE_PATH, 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
+var PRIVATEKEY_PATH = path.join(__dirname, '../../../apache2/conf/server.key');
+var CERTIFICATE_PATH = path.join(__dirname, '../../../apache2/conf/server.crt');
+
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
+
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(443);
 
 /**
  * Listen on provided port, on all network interfaces.
