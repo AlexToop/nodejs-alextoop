@@ -160,7 +160,7 @@ h3 {
 
 /* ------------------------- media queries ------------------------- */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (device-width: 768px), only screen and (max-width: 768px) {
     #wrapper {
         width: 96%;
     }
@@ -172,17 +172,7 @@ h3 {
         /* Light grey background */
         background-color: #f6f6f6;
     }
-}
 
-@media (max-width: 767px) {
-    .navbar-toggleable-sm {
-        clear: both;
-    }
-
-}
-
-
-@media only screen and (max-width: 768px) {
     .img1 {
         width: 99%;
         height: auto;
@@ -204,4 +194,11 @@ h3 {
     .padding-left-200 {
         padding-left: 0px;
     }
+}
+
+@media (max-width: 767px) {
+    .navbar-toggleable-sm {
+        clear: both;
+    }
+
 }
