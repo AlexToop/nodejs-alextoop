@@ -115,15 +115,16 @@ var checkip = require('check-ip-address');
 var server;
 var insecureServer;
 var options;
-var certsPath = '../../../../apache2/conf/www.alextoop.com.key';
-var caCertsPath = '../../../../apache2/conf/www.alextoop.com.crt';
+var certsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf');
+var caCertsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf');
 
 //
 // SSL Certificates
 //
 options = {
-    key: fs.readFileSync(path.join(certsPath)),
-    cert: fs.readFileSync(path.join(caCertsPath))
+    key: fs.readFileSync(path.join(certsPath, www.alextoop.com.key')),
+    cert: fs.readFileSync(path.join(certsPath, www.alextoop.com.crt'))
+
 };
 
 
