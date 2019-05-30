@@ -22,3 +22,6 @@ Used code:
 GitHub Card
 https://github.com/surbhioberoi/github-widget/
 MIT License
+
+Thanks to website:
+https://bradymower.com/create-ios-android-shortcut-icon-for-website/
