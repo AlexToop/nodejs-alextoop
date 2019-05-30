@@ -30,7 +30,7 @@ module.exports.create = function (server, host, port, publicDir) {
     var app = express();
 
     app.use(express.static(publicDir), {
-        extensions: ['html'],
+        extensions: ['html']
     });
     // app.use(express.static(path.join(__dirname, '..', 'public')));
 
