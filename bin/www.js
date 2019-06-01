@@ -116,56 +116,53 @@ var insecureServer;
 var options;
 var certsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf');
 var caCertsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf');
-
-//
-// SSL Certificates
-//
-options = {
-    key: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.key')),
-    cert: fs.readFileSync(path.join(caCertsPath, 'www.alextoop.com.crt'))
-};
+var IS_PRODUCTION = true;
 
 
-//
-// Serve an Express App securely with HTTPS
-//
-server = https.createServer(options);
-checkip.getExternalIp().then(function (ip) {
-    var host = ip || 'www.alextoop.com';
-
-    function listen(app) {
-        server.on('request', app);
-        server.listen(port, function () {
-            port = server.address().port;
-            console.log('Listening on https://127.0.0.1:' + port);
-            console.log('Listening on https://www.alextoop.com:' + port);
-            if (ip) {
-                console.log('Listening on https://' + ip + ':' + port);
-            }
-        });
-    }
-
-    var publicDir = path.join(__dirname, '..', 'public');
-    var app = require('../app').create(server, host, port, publicDir);
-    listen(app);
-});
-
-
-//
-// Redirect HTTP ot HTTPS
-//
-// This simply redirects from the current insecure location to the encrypted location
-//
 insecureServer = http.createServer();
+
 insecureServer.on('request', function (req, res) {
-    // TODO also redirect websocket upgrades
-    res.setHeader(
-        'Location'
-        , 'https://' + req.headers.host.replace(/:\d+/, ':' + port) + req.url
-    );
+    res.setHeader('Location', 'https://' + req.headers.host.replace(/:\d+/, ':' + port) + req.url);
     res.statusCode = 302;
     res.end();
 });
-insecureServer.listen(insecurePort, function(){
+
+insecureServer.listen(insecurePort, function () {
     console.log("\nRedirecting all http traffic to https\n");
 });
+
+
+if (IS_PRODUCTION) {
+    options = {
+        key: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.key')),
+        cert: fs.readFileSync(path.join(caCertsPath, 'www.alextoop.com.crt'))
+    };
+
+    server = https.createServer(options);
+    checkip.getExternalIp().then(function (ip) {
+        var host = ip || 'www.alextoop.com';
+
+        function listen(app) {
+            server.on('request', app);
+            server.listen(port, function () {
+                port = server.address().port;
+                console.log('Listening on https://127.0.0.1:' + port);
+                console.log('Listening on https://www.alextoop.com:' + port);
+                if (ip) {
+                    console.log('Listening on https://' + ip + ':' + port);
+                }
+            });
+        }
+
+        var publicDir = path.join(__dirname, '..', 'public');
+        var app = require('../app').create(server, host, port, publicDir);
+        listen(app);
+    });
+} else {
+    var host = checkip.getExternalIp();
+    server = http.createServer(options);
+    var publicDir = path.join(__dirname, '..', 'public');
+    var app = require('../app').create(server, host, port, publicDir);
+    server.on('request', app);
+    server.listen(port);
+}
