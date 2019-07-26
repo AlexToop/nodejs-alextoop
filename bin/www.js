@@ -114,8 +114,8 @@ var checkip = require('check-ip-address');
 var server;
 var insecureServer;
 var options;
-var certsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf');
-var caCertsPath = path.join(__dirname, '..', '..', '..', '..', 'apache2', 'conf');
+var certsPath = path.join('/etc/letsencrypt/live/wwwalextoopcom/');
+var caCertsPath = path.join('/etc/letsencrypt/live/wwwalextoopcom/');
 var IS_PRODUCTION = true;
 
 
@@ -134,8 +134,8 @@ insecureServer.listen(insecurePort, function () {
 
 if (IS_PRODUCTION) {
     options = {
-        key: fs.readFileSync(path.join(certsPath, 'www.alextoop.com.key')),
-        cert: fs.readFileSync(path.join(caCertsPath, 'www.alextoop.com.crt'))
+        key: fs.readFileSync(path.join(certsPath, 'privkey.pem')),
+        cert: fs.readFileSync(path.join(caCertsPath, 'fullchain.pem'))
     };
 
     server = https.createServer(options);

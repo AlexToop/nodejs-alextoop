@@ -3,6 +3,7 @@
 # directories
 /node_modules/
 /.idea/
+/.vscode/
 
 # file types
 *.iml
