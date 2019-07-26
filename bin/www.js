@@ -107,8 +107,8 @@
 var https = require('https');
 var http = require('http');
 var path = require('path');
-var port = process.argv[2] || 443;
-var insecurePort = process.argv[3] || 80;
+var port = 443;
+var insecurePort = 80;
 var fs = require('fs');
 var checkip = require('check-ip-address');
 var server;
