@@ -142,10 +142,11 @@ if (IS_PRODUCTION) {
     console.log("\nCreated server\n");
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
-        console.log("\nThe ip is: " + host + " and port:" + port + "\n");
+        console.log("\nThe ip is: " + host + "\n");
 
         function listen(app) {
             server.on('request', app);
+            console.log("\nThe port is: " + port + "\n");
             server.listen(port, function () {
                 port = server.address().port;
                 console.log('Listening on https://127.0.0.1:' + port);
