@@ -114,8 +114,8 @@ var checkip = require('check-ip-address');
 var server;
 var insecureServer;
 var options;
-var certsPath = path.join('/etc/letsencrypt/live/wwwalextoopcom/');
-var caCertsPath = path.join('/etc/letsencrypt/live/wwwalextoopcom/');
+var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
+var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
 var IS_PRODUCTION = true;
 
 
