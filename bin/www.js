@@ -139,8 +139,10 @@ if (IS_PRODUCTION) {
     };
 
     server = https.createServer(options);
+    console.log("\nCreated server\n");
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
+        console.log("\nThe ip is" + ip + "\n");
 
         function listen(app) {
             server.on('request', app);
