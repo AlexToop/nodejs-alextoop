@@ -142,7 +142,7 @@ if (IS_PRODUCTION) {
     console.log("\nCreated server\n");
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
-        console.log("\nThe ip is" + ip + "\n");
+        console.log("\nThe ip is: " + host + " and port:" + port + "\n");
 
         function listen(app) {
             server.on('request', app);
