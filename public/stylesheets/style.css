@@ -18,8 +18,9 @@
 
 body {
     /* Font can be aquired from Google Fonts */
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
     font-size: 16px;
+    font-weight: 400 !important;
     background-color: #f6f6f6;
 }
 
@@ -47,13 +48,15 @@ a:hover {
 
 h1 {
     font-size: 40px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600 !important;
 }
 
 h2 {
     font-size: 24px;
     padding-top: 14px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600  !important;
 }
 
 h3 {
@@ -110,6 +113,7 @@ h3 {
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 400  !important;
 }
 
 
@@ -119,6 +123,7 @@ h3 {
     margin-left: auto;
     margin-right: auto;
     padding-left: 5%;
+    font-weight: 400  !important;
 }
 
 
@@ -171,6 +176,7 @@ h3 {
         font-size: 15px;
         /* Light grey background */
         background-color: #f6f6f6;
+        font-weight: 400 !important;
     }
 
     .img1 {

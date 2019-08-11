@@ -107,6 +107,7 @@
 var https = require('https');
 var http = require('http');
 var path = require('path');
+
 var port = 443;
 var insecurePort = 80;
 var fs = require('fs');
@@ -114,9 +115,7 @@ var checkip = require('check-ip-address');
 var server;
 var insecureServer;
 var options;
-var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
-var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
-var IS_PRODUCTION = true;
+var IS_PRODUCTION = false;
 
 
 insecureServer = http.createServer();
@@ -135,6 +134,8 @@ insecureServer.listen(insecurePort, function () {
 
 
 if (IS_PRODUCTION) {
+    var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
+    var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
     options = {
         key: fs.readFileSync(path.join(certsPath, 'privkey.pem')),
         cert: fs.readFileSync(path.join(caCertsPath, 'fullchain.pem'))
@@ -158,7 +159,6 @@ if (IS_PRODUCTION) {
                 }
             });
         }
-
         var publicDir = path.join(__dirname, '..', 'public');
         var app = require('../app').create(server, host, port, publicDir);
         listen(app);
