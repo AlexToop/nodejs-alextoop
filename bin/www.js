@@ -122,9 +122,11 @@ var IS_PRODUCTION = true;
 insecureServer = http.createServer();
 
 insecureServer.on('request', function (req, res) {
-    res.setHeader('Location', 'https://' + req.headers.host.replace(/:\d+/, ':' + port) + req.url);
-    res.statusCode = 302;
-    res.end();
+    if (req && req.headers && req.headers.host) {
+        res.setHeader('Location', 'https://' + req.headers.host.replace(/:\d+/, ':' + port) + req.url);
+        res.statusCode = 302;
+        res.end();
+    }
 });
 
 insecureServer.listen(insecurePort, function () {
