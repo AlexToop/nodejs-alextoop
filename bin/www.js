@@ -115,7 +115,7 @@ var checkip = require('check-ip-address');
 var server;
 var insecureServer;
 var options;
-var IS_PRODUCTION = false;
+var IS_PRODUCTION = true;
 
 
 insecureServer = http.createServer();

@@ -54,6 +54,10 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-73302818-2');
+
+        $.getJSON('https://reqres.in/api/users?page=2', function(data) {
+            console.log(data);
+        });
     </script>
 
 </head>
