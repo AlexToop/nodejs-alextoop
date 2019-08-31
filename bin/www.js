@@ -10,13 +10,12 @@ var port = 443;
 var insecurePort = 80;
 var fs = require('fs');
 var checkip = require('check-ip-address');
-var server;
-var insecureServer;
 var options;
 var IS_PRODUCTION = true;
 
 
 function productionRun(){
+    var server;
     var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
     var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
     options = {
@@ -24,9 +23,7 @@ function productionRun(){
         cert: fs.readFileSync(path.join(caCertsPath, 'fullchain.pem'))
     };
 
-
     server = https.createServer(options);
-
 
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
@@ -47,6 +44,7 @@ function productionRun(){
 
 
 function devRun(){
+    var server;
     var host = checkip.getExternalIp();
     server = http.createServer(options);
     var publicDir = path.join(__dirname, '..', 'public');
@@ -57,7 +55,7 @@ function devRun(){
 
 
 function catchInsecureConnections(){
-    insecureServer = http.createServer();
+    var insecureServer = http.createServer();
 
     insecureServer.on('request', function (req, res) {
         if (req && req.headers && req.headers.host) {
