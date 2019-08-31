@@ -109,7 +109,7 @@ var http = require('http');
 var path = require('path');
 
 var port = 443;
-// var insecurePort = 80;
+var insecurePort = 80;
 var fs = require('fs');
 var checkip = require('check-ip-address');
 var server;
@@ -128,11 +128,11 @@ insecureServer.on('request', function (req, res) {
     }
 });
 
-// insecureServer.listen(insecurePort, function () {
-//     console.log("\nRedirecting all http traffic to https\n");
-// });
+insecureServer.listen(insecurePort, function () {
+    console.log("\nRedirecting all http traffic to https\n");
+});
 
-// insecureServer.listen(insecurePort);
+insecureServer.listen(insecurePort);
 
 
 if (IS_PRODUCTION) {
