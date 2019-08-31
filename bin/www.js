@@ -109,7 +109,7 @@ var http = require('http');
 var path = require('path');
 
 var port = 443;
-var insecurePort = 80;
+// var insecurePort = 80;
 var fs = require('fs');
 var checkip = require('check-ip-address');
 var server;
@@ -128,9 +128,9 @@ insecureServer.on('request', function (req, res) {
     }
 });
 
-insecureServer.listen(insecurePort, function () {
-    console.log("\nRedirecting all http traffic to https\n");
-});
+// insecureServer.listen(insecurePort, function () {
+//     console.log("\nRedirecting all http traffic to https\n");
+// });
 
 
 if (IS_PRODUCTION) {
@@ -142,46 +142,25 @@ if (IS_PRODUCTION) {
     };
 
     server = https.createServer(options);
-    console.log("\nCreated server\n");
+    // console.log("\nCreated server\n");
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
         console.log("\nThe ip is: " + host + "\n");
 
-        function listen(app) {
-            server.on('request', app);
-            console.log("\nThe port is: " + port + "\n");
-            server.listen(port, function () {
-                port = server.address().port;
-                console.log('Listening on https://127.0.0.1:' + port);
-                console.log('Listening on https://www.alextoop.com:' + port);
-                if (ip) {
-                    console.log('Listening on https://' + ip + ':' + port);
-                }
-            });
-        }
+        // function listen(app) {
+        //     server.on('request', app);
+        //     console.log("\nThe port is: " + port + "\n");
+        //     server.listen(port, function () {
+        //         port = server.address().port;
+        //         console.log('Listening on https://127.0.0.1:' + port);
+        //         console.log('Listening on https://www.alextoop.com:' + port);
+        //         if (ip) {
+        //             console.log('Listening on https://' + ip + ':' + port);
+        //         }
+        //     });
+        // }
         var publicDir = path.join(__dirname, '..', 'public');
         var app = require('../app').create(server, host, port, publicDir);
-
-
-  
-        app.use(function (req, res, next) {
-            // Website you wish to allow to connect
-            res.setHeader('Access-Control-Allow-Origin', 'http://www.alextoop.com:8443/tasks');
-
-            // Request methods you wish to allow
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-            // Request headers you wish to allow
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-            // Set to true if you need the website to include cookies in the requests sent
-            // to the API (e.g. in case you use sessions)
-            res.setHeader('Access-Control-Allow-Credentials', true);
-
-            // Pass to next layer of middleware
-            next();
-        });
-
 
         listen(app);
     });
