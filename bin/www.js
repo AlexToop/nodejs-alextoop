@@ -6,39 +6,29 @@ var http = require('http');
 var path = require('path');
 
 
-var port = 443;
+var securePort = 443;
 var insecurePort = 80;
 var fs = require('fs');
 var checkip = require('check-ip-address');
-var options;
 var IS_PRODUCTION = true;
+var publicDir = path.join(__dirname, '..', 'public');
 
 
 function productionRun(){
-    var server;
     var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
     var caCertsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
-    options = {
+    var options = {
         key: fs.readFileSync(path.join(certsPath, 'privkey.pem')),
         cert: fs.readFileSync(path.join(caCertsPath, 'fullchain.pem'))
     };
-
-    server = https.createServer(options);
+    var server = https.createServer(options);
 
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
+        var app = require('../app').create(server, host, securePort, publicDir);
 
-        function listen(app) {
-            server.on('request', app);
-            console.log("\nThe port is: " + port + "\n");
-            server.listen(port, function () {
-            });
-        }
-
-        var publicDir = path.join(__dirname, '..', 'public');
-        var app = require('../app').create(server, host, port, publicDir);
-
-        listen(app);
+        server.on('request', app);
+        server.listen(securePort);
     });
 }
 
@@ -46,11 +36,10 @@ function productionRun(){
 function devRun(){
     var server;
     var host = checkip.getExternalIp();
-    server = http.createServer(options);
-    var publicDir = path.join(__dirname, '..', 'public');
-    var app = require('../app').create(server, host, port, publicDir);
+    server = http.createServer();
+    var app = require('../app').create(server, host, securePort, publicDir);
     server.on('request', app);
-    server.listen(port);
+    server.listen(securePort);
 }
 
 
@@ -59,7 +48,7 @@ function catchInsecureConnections(){
 
     insecureServer.on('request', function (req, res) {
         if (req && req.headers && req.headers.host) {
-            res.setHeader('Location', 'https://' + req.headers.host.replace(/:\d+/, ':' + port) + req.url);
+            res.setHeader('Location', 'https://' + req.headers.host.replace(/:\d+/, ':' + securePort) + req.url);
             res.statusCode = 302;
             res.end();
         }
