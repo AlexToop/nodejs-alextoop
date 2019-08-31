@@ -132,7 +132,7 @@ insecureServer.on('request', function (req, res) {
 //     console.log("\nRedirecting all http traffic to https\n");
 // });
 
-insecureServer.listen(insecurePort);
+// insecureServer.listen(insecurePort);
 
 
 if (IS_PRODUCTION) {
