@@ -38,6 +38,12 @@ function devRun(){
     var host = checkip.getExternalIp();
     server = http.createServer();
     var app = require('../app').create(server, host, securePort, publicDir);
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+      });
     server.on('request', app);
     server.listen(securePort);
 }
