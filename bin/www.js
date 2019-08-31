@@ -132,6 +132,8 @@ insecureServer.on('request', function (req, res) {
 //     console.log("\nRedirecting all http traffic to https\n");
 // });
 
+insecureServer.listen(insecurePort);
+
 
 if (IS_PRODUCTION) {
     var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/');
@@ -145,20 +147,21 @@ if (IS_PRODUCTION) {
     // console.log("\nCreated server\n");
     checkip.getExternalIp().then(function (ip) {
         var host = ip || 'www.alextoop.com';
-        console.log("\nThe ip is: " + host + "\n");
+        // console.log("\nThe ip is: " + host + "\n");
 
-        // function listen(app) {
-        //     server.on('request', app);
-        //     console.log("\nThe port is: " + port + "\n");
-        //     server.listen(port, function () {
-        //         port = server.address().port;
-        //         console.log('Listening on https://127.0.0.1:' + port);
-        //         console.log('Listening on https://www.alextoop.com:' + port);
-        //         if (ip) {
-        //             console.log('Listening on https://' + ip + ':' + port);
-        //         }
-        //     });
-        // }
+        function listen(app) {
+            server.on('request', app);
+            // console.log("\nThe port is: " + port + "\n");
+            server.listen(port, function () {
+                // port = server.address().port;
+                // console.log('Listening on https://127.0.0.1:' + port);
+                // console.log('Listening on https://www.alextoop.com:' + port);
+                // if (ip) {
+                //     console.log('Listening on https://' + ip + ':' + port);
+                // }
+            });
+        }
+
         var publicDir = path.join(__dirname, '..', 'public');
         var app = require('../app').create(server, host, port, publicDir);
 
