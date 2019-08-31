@@ -25,9 +25,12 @@
 'use strict';
 
 var express = require('express');
+const cors = require('cors');
 
 module.exports.create = function (server, host, port, publicDir) {
     var app = express();
+    app.use(cors());
+    app.options('*', cors());
 
     app.use(express.static(publicDir));
     // app.use(express.static(path.join(__dirname, '..', 'public')));
