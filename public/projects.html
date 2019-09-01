@@ -65,11 +65,13 @@
             crossDomain: true,
             url: 'https://www.alextoop.com:8443/tasks',
             success: function(data){
+                console.log("pass");
                 // alert("success");
                 // var element = document.getElementById('about_section');
                 // element.innerHTML = data;
             },
             error: function (data, status, req) {
+                console.log("error");
                 // alert("fail");
                 // var element = document.getElementById('about_section');
                 // element.innerHTML =  JSON.stringify(data);
