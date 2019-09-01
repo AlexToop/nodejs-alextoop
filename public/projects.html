@@ -62,11 +62,11 @@
         $.ajax({
             type: 'GET',
             crossDomain: true,
-            dataType: 'jsonp',
             url: 'https://www.alextoop.com:8443/tasks',
-            success: function(jsondata){
+            success: function(data){
+                alert("hi");
                 var element = document.getElementById('about_section');
-                element.innerHTML = JSON.stringify(jsondata);
+                element.innerHTML = jsondata;
             }
         })
     </script>
