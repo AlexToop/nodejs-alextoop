@@ -65,8 +65,8 @@
             dataType: 'jsonp',
             url: 'https://www.alextoop.com:8443/tasks',
             success: function(jsondata){
-                alert("hi");
-                console.log("load worked!!");
+                var element = document.getElementById('about_section');
+                element.innerHTML = JSON.stringify(jsondata);
             }
         })
     </script>
