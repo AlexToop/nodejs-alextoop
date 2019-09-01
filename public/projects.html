@@ -71,7 +71,9 @@
                 // element.innerHTML = data;
             },
             error: function (data, status, req) {
-                console.log("error + " + JSON.stringify(data));
+                console.log(JSON.stringify(data));
+                console.log(JSON.stringify(status));
+                console.log(JSON.stringify(req));
                 // alert("fail");
                 // var element = document.getElementById('about_section');
                 // element.innerHTML =  JSON.stringify(data);
@@ -79,6 +81,7 @@
                 // element.appendChild =  JSON.stringify(req);
             }
         }).done(function(data, textStatus, jqXHR){
+            console.log(JSON.stringify(data));
             console.log(JSON.stringify(data));
             console.log(jqXHR.responseText);
         });   
