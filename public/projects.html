@@ -55,9 +55,19 @@
 
         gtag('config', 'UA-73302818-2');
 
-        $.getJSON('https://www.alextoop.com:8443/tasks', function(data) {
-            console.log("load worked!!");
-        });
+        // $.getJSON('https://www.alextoop.com:8443/tasks', function(data) {
+        //     console.log("load worked!!");
+        // });
+
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'jsonp',
+            url: 'https://www.alextoop.com:8443/tasks',
+            success: function(jsondata){
+                console.log("load worked!!");
+            }
+        })
     </script>
 
 </head>
