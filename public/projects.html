@@ -72,7 +72,7 @@
             error: function (data, status, req) {
                 alert("fail");
                 var element = document.getElementById('about_section');
-                element.innerHTML = data;
+                element.innerHTML =  JSON.stringify(data);
             }
         })
     </script>
