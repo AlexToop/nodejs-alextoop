@@ -63,8 +63,6 @@ function catchInsecureConnections(){
     insecureServer.listen(insecurePort, function () {
         console.log("\nRedirecting all http traffic to https\n");
     });
-
-    insecureServer.listen(insecurePort);
 }
 
 
