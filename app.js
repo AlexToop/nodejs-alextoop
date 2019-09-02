@@ -8,7 +8,6 @@ module.exports.create = function (server, host, port, publicDir) {
 
     app.use(cors());
     app.use(express.static(publicDir));
-    // app.use(express.static(path.join(__dirname, '..', 'public')));
 
     return app;
 };
