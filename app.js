@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-var express = require('express');
+var express = require('express')
 
 module.exports.create = function (server, host, port, publicDir) {
-    var app = express();
-    var cors = require('cors');
+  var app = express()
+  var cors = require('cors')
 
-    app.use(cors());
-    app.use(express.static(publicDir));
+  app.use(cors())
+  app.use(express.static(publicDir))
 
-    return app;
-};
+  return app
+}
