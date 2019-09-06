@@ -8,7 +8,7 @@ var securePort = 443
 var insecurePort = 80
 var fs = require('fs')
 var checkip = require('check-ip-address')
-var IS_PRODUCTION = false
+var IS_PRODUCTION = true
 var publicDir = path.join(__dirname, '..', 'public')
 
 function productionRun () {
