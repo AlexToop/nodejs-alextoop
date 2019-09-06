@@ -1,9 +1,14 @@
-var express = require('express')
-var router = express.Router()
+'use strict'
+module.exports = function (app, publicDir) {
+  app.get('/', function (req, res) {
+    res.sendFile(publicDir + '/index.html')
+  })
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' })
-})
+  app.get('/projects/', function (req, res) {
+    res.sendFile(publicDir + '/projects.html')
+  })
 
-module.exports = router
+  app.get('/contact/', function (req, res) {
+    res.sendFile(publicDir + '/contact.html')
+  })
+}
