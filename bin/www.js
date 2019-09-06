@@ -8,8 +8,8 @@ var securePort = 443
 var insecurePort = 80
 var fs = require('fs')
 var checkip = require('check-ip-address')
-var IS_PRODUCTION = true
 var publicDir = path.join(__dirname, '..', 'public')
+var IS_PRODUCTION = true
 
 function productionRun () {
   var certsPath = path.join('/etc/letsencrypt/live/www.alextoop.com/')
